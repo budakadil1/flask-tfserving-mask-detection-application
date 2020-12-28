@@ -10,7 +10,10 @@ def make_prediction(instances):
     data = json.dumps({ "instances": instances.tolist()})
     headers = {"content-type": "application/json"}
     json_response = requests.post(url, data=data, headers=headers)
-    predictions = json.loads(json_response.text)['predictions']
+    try:
+        predictions = json.loads(json_response.text)['predictions']
+    except KeyError:
+        return "The model did not return any values. Please make sure that the upload is a picture."
     if predictions[0][0] == 1:
         return "No mask found."
     else:
