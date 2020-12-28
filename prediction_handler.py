@@ -13,7 +13,7 @@ def make_prediction(instances):
     try:
         predictions = json.loads(json_response.text)['predictions']
     except KeyError:
-        return "The model did not return any values. Please make sure that the upload is a picture."
+        return "The model did not return any values. Please make sure that the upload is a picture and contains a face."
     if predictions[0][0] == 1:
         return "No mask found."
     else:
