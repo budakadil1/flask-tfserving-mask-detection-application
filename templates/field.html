@@ -1,0 +1,24 @@
+<html>
+
+    <head>
+        <title>Mask Prediction</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <style>
+            body {background-color: powderblue;}
+        </style>
+    <h2 class="text-danger">Does this person wear a mask? <br> We'll see. Upload an image! (all images are deleted after the prediction)</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file1">
+        <br>
+        <br>
+        <input type="submit">
+    </form>
+
+        
+        <h2> Results: <span class="text-primary">{{ result }}</span></h2>
+        <h5 class="text-success">This model is served using Tensorflow/serving hosted on a VPS. The app itself is a flask application which makes a request after processing the image using Pillow and Numpy.</h5>
+        <h5 class="text-danger">Results may not be entirely accurate, this is not a good model.</h5>
+    </body>
+</html>
