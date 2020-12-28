@@ -19,12 +19,13 @@ def upload_file():
             return 'there is no image in form!'
         file1 = request.files['file1']
         img = Image.open(io.BytesIO(file1.read())).resize((64,64))
-        # downgrade to keras==1.1.0 for BytesIO compatibility.
+        # convert img (if not RGB, RGBA as example) to RGB as model expects 3 channels, not 4.
+        if img.mode != 'RGB':
+            img = img.convert('RGB')
         test_image = np.asarray(img)
         test_image = np.expand_dims(test_image, axis=0)
         results = make_prediction(test_image)
-        # delete path after
-        # return results to template
+
         return render_template('field.html', result=results)
 
     return render_template('field.html')
