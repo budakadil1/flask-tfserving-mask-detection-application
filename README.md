@@ -14,3 +14,4 @@ Change the system environment ```"TENSOR_SERVER_IP"``` to an IP:PORT which has t
 Also change the ```'/v1/models/img_classifier:predict'``` to ```'/v1/models/(YOUR MODEL NAME):predict'``` - or to any other url the post request is supposed to go to.
 
 ##### The actual model itself is not really good, this project was created so that I could learn about tfserving and machine learning model deployments into production in general.
+##### The model can be accessed here: https://github.com/budakadil1/tf-serving-mask-detection
