@@ -1,5 +1,9 @@
 # flask-tfserving-mask-detection-application
+
 This is an application that determines if someone is wearing a mask or not using with a tensorflow model, flask and tfserving.
+
+
+It is currently deployed at: https://flask-tfserving-mask-detection.herokuapp.com (takes around 30 secs to boot up due to Heroku free tier dyno).
 
 ### How does this work?
 The flask app sends a request to the tensorflow/serving server (set up on a private vps) after processing the uploaded images to appropriate size. 
